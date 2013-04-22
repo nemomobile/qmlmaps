@@ -1,7 +1,5 @@
 CONFIG += mobility
-CONFIG += qdeclarative-boostable qt-boostable
-INCLUDEPATH += /usr/include/applauncherd
-LIBS += -lmdeclarativecache
+CONFIG += qdeclarative-boostable 
 MOBILITY += location
 QT+= declarative
 TEMPLATE = app
@@ -12,6 +10,3 @@ include(src/src.pri)
 
 include(deployment.pri)
 qtcAddDeployment()
-
-QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
-QMAKE_LFLAGS += -pie -rdynamic

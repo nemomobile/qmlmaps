@@ -8,6 +8,7 @@ URL:            https://github.com/dubik/meego-handset-maps
 Source0:        %{name}-%{version}.tgz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:  qt-devel
+BuildRequires:  pkgconfig(qdeclarative-boostable)
 
 %description
 MeeGo Handset Maps - simple and fast maps application for Handset UX. Uses QtMObility and thus needs data connection to function.
