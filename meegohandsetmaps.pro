@@ -1,7 +1,7 @@
 CONFIG += mobility
 CONFIG += qdeclarative-boostable 
 MOBILITY += location
-QT+= declarative
+QT+= qml quick location
 TEMPLATE = app
 TARGET = meego-handset-maps
 DESTDIR = bin

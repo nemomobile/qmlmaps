@@ -1,17 +1,20 @@
 Name:           qmlmaps
-Version:        0.1.7
+Version:        0.1.8
 Release:        1
 Summary:        Simple and fast maps application for QML. Needs data connection!
 Group:          User Interface/Desktops
 License:        GPL v2
 URL:            https://github.com/nemomobile/qmlmaps
 Source0:        %{name}-%{version}.tar.bz2
-Requires:       qt-components
-Requires:       libdeclarative-location
-BuildRequires:  pkgconfig(QtCore)
-BuildRequires:  pkgconfig(QtGui)
-BuildRequires:  pkgconfig(QtDeclarative)
-BuildRequires:  pkgconfig(qdeclarative-boostable)
+Requires:	qt5-qtlocation
+Requires:       qt5-qtdeclarative-import-location
+Requires:   qt-components-qt5
+Requires:   mapplauncherd-booster-qtcomponents-qt5
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Location)
+BuildRequires:  pkgconfig(qdeclarative5-boostable)
 Obsoletes:      meego-handset-maps < 0.1.7
 Provides:       meego-handset-maps >= 0.1.7
 
@@ -22,7 +25,7 @@ QML Maps - simple and fast maps application. Uses QtMObility and thus needs data
 %setup -q -n %{name}-%{version}
 
 %build
-%qmake
+%qmake5
 make %{?jobs:-j%jobs}
 
 %install
