@@ -1,6 +1,3 @@
-* Sun Aug 11 2013 Aleksi Suomalainen <suomalainen.aleksi@gmail.com> - 0.1.8
-- Qt5
-
 * Mon Sep 10 2012 Marko Saukko <marko.saukko@jollamobile.com> - 0.1.6
 - Drop %{?_isa} from dependency
 

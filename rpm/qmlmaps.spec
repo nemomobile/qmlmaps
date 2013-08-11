@@ -8,8 +8,8 @@ URL:            https://github.com/nemomobile/qmlmaps
 Source0:        %{name}-%{version}.tar.bz2
 Requires:	qt5-qtlocation
 Requires:       qt5-qtdeclarative-import-location
-Requires:   qt-components-qt5
-Requires:   mapplauncherd-booster-qtcomponents-qt5
+Requires:       qt-components-qt5
+Requires:       mapplauncherd-booster-qtcomponents-qt5
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
