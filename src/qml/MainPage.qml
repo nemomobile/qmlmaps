@@ -1,6 +1,6 @@
-import QtQuick 1.1
-import com.nokia.meego 1.0
-import QtMobility.location 1.2
+import QtQuick 2.0
+import com.nokia.meego 2.0
+import QtLocation 5.0
 
 Page {
     tools: commonTools
@@ -55,10 +55,9 @@ Page {
         id: map
         plugin : Plugin {name : "nokia"}
         anchors.fill: parent
-        size.width: parent.width
-        size.height: parent.height
+        width: parent.width
+        height: parent.height
         zoomLevel: 10
-        center: Coordinate { latitude: 60.169589; longitude: 24.941318} //TODO - cache last position?
 
         PositionSource {
             id: positionSource
