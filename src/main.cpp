@@ -1,30 +1,24 @@
-#include <QtGui/QApplication>
-#include <QtDeclarative>
-#ifdef __arm__
-#include <applauncherd/MDeclarativeCache>
+#include <QGuiApplication>
+#include <QQuickView>
+#include <QtQml>
+#ifdef HAS_BOOSTER
+#include <MDeclarativeCache>
 #endif
 
-
-Q_DECL_EXPORT int main(int argc, char *argv[])
+#ifdef HAS_BOOSTER
+Q_DECL_EXPORT
+#endif
+int main(int argc, char *argv[])
 {
-#ifdef __arm__
-    QApplication *app = MDeclarativeCache::qApplication(argc, argv);
-    QDeclarativeView *view = MDeclarativeCache::qDeclarativeView();
+#ifdef HAS_BOOSTER
+    QGuiApplication* app = MDeclarativeCache::qApplication(argc, argv);
+    QQuickView* view = MDeclarativeCache::qQuickView();
+#else
+    QGuiApplication* app = new QGuiApplication(argc, argv);
+    QQuickView* view = new QQuickView;
+#endif
     view->setSource(QUrl("qrc:/qml/main.qml"));
     view->showFullScreen();
-#else
-    QApplication *app = new QApplication(argc, argv);
-    QDeclarativeView *view = new QDeclarativeView();
-    view->setSource(QUrl("qrc:/qml/main.qml"));
-    view->show();
-#endif
-
-    view->setWindowTitle("Maps");
-    //Flickr removal
-    view->setAttribute(Qt::WA_OpaquePaintEvent);
-    view->setAttribute(Qt::WA_NoSystemBackground);
-    view->viewport()->setAttribute(Qt::WA_OpaquePaintEvent);
-    view->viewport()->setAttribute(Qt::WA_NoSystemBackground);
 
     QObject::connect(view->engine(), SIGNAL(quit()), view, SLOT(close()));
 
